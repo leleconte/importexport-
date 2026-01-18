@@ -1,273 +1,277 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pacific Import | Logistica & Distribuzione</title>
+    <title>Pacific Import | Mobile Optimized</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
             --primary: #1a2a6c;
             --secondary: #b21f1f;
             --accent: #fdbb2d;
-            --dark: #2d3436;
-            --light: #f4f7f6;
-            --white: #ffffff;
+            --bg: #f8f9fa;
+            --text: #2d3436;
         }
+
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
-            line-height: 1.6;
-            background-color: var(--light);
-            color: var(--dark);
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
         }
 
-        /* Header & Navigation */
+        /* Header Responsivo */
         header {
             background: var(--primary);
-            color: var(--white);
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            color: white;
+            padding: 15px;
+            text-align: center;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
-        .logo { font-size: 1.5rem; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; }
-
-        nav a { color: white; text-decoration: none; margin-left: 20px; font-weight: 500; transition: 0.3s; }
-        nav a:hover { color: var(--accent); }
+        .logo { font-size: 1.2rem; font-weight: 800; letter-spacing: 1px; }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(26, 42, 108, 0.8), rgba(26, 42, 108, 0.8)), url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background: linear-gradient(rgba(26, 42, 108, 0.9), rgba(26, 42, 108, 0.7)), url('https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=800&q=80');
             background-size: cover;
-            height: 40vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            background-position: center;
             color: white;
+            padding: 40px 20px;
             text-align: center;
         }
 
-        .container { width: 90%; max-width: 1200px; margin: 40px auto; }
+        .container { padding: 20px; max-width: 1200px; margin: auto; }
 
-        /* Grid Layouts */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-
-        .card {
-            background: var(--white);
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            border-top: 4px solid var(--primary);
+        h2 { 
+            font-size: 1.4rem; 
+            border-left: 4px solid var(--secondary); 
+            padding-left: 10px; 
+            margin: 30px 0 20px;
+            text-transform: uppercase;
         }
 
-        /* Coming Soon Styling */
-        .coming-soon { opacity: 0.7; position: relative; overflow: hidden; }
+        /* Grid adattive: 1 colonna su mobile, 3 su desktop */
+        .grid { 
+            display: grid; 
+            grid-template-columns: 1fr; 
+            gap: 15px; 
+        }
+
+        @media (min-width: 768px) {
+            .grid { grid-template-columns: repeat(3, 1fr); }
+            .outfit-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            border: 1px solid #eee;
+        }
+
+        /* Coming Soon */
+        .coming-soon { background: #f1f1f1; border-style: dashed; }
         .badge {
-            background: var(--secondary);
+            background: #888;
             color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border-radius: 4px;
             float: right;
         }
 
-        /* Vehicles Section */
-        .vehicle-card { text-align: center; transition: transform 0.3s; }
-        .vehicle-card:hover { transform: translateY(-5px); }
-        .vehicle-card i { font-size: 3rem; color: var(--primary); margin-bottom: 15px; }
-
-        /* Outfit Section */
-        .outfit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .outfit-list { list-style: none; padding: 0; }
-        .outfit-list li { margin-bottom: 8px; padding-left: 25px; position: relative; }
-        .outfit-list li::before { content: '\f058'; font-family: 'Font Awesome 5 Free'; font-weight: 900; position: absolute; left: 0; color: var(--primary); }
-
-        /* Webhook Form */
-        .order-form {
-            background: var(--white);
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        /* Veicoli */
+        .vehicle-tag {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-top: 10px;
         }
 
-        .form-group { margin-bottom: 15px; }
-        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        /* Outfit List */
+        .outfit-list { list-style: none; padding: 0; font-size: 0.95rem; }
+        .outfit-list li { margin-bottom: 10px; padding-left: 30px; position: relative; }
+        .outfit-list li i { position: absolute; left: 0; color: var(--primary); top: 3px; }
+
+        /* Form per Mobile */
+        .order-form {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.9rem; }
+        
         input, select, textarea {
             width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            box-sizing: border-box;
+            padding: 14px;
+            border: 2px solid #edf2f7;
+            border-radius: 10px;
+            font-size: 1rem;
+            background: #fdfdfd;
         }
+
+        input:focus { border-color: var(--primary); outline: none; }
 
         button {
             background: var(--primary);
             color: white;
-            padding: 15px 30px;
+            padding: 18px;
             border: none;
-            border-radius: 5px;
-            cursor: pointer;
+            border-radius: 10px;
+            font-size: 1rem;
             font-weight: bold;
             width: 100%;
-            transition: background 0.3s;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(26, 42, 108, 0.2);
         }
 
-        button:hover { background: #0e173d; }
+        footer { text-align: center; padding: 40px; color: #888; font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="logo"><i class="fas fa-ship"></i> PACIFIC IMPORT</div>
-    <nav>
-        <a href="#listino">Listino</a>
-        <a href="#flotta">Flotta</a>
-        <a href="#outfit">Divise</a>
-        <a href="#ordine">Invia Ordine</a>
-    </nav>
+    <div class="logo"><i class="fas fa-box-open"></i> PACIFIC IMPORT</div>
 </header>
 
-<div class="hero">
-    <h1>Efficienza Globale, Consegna Locale</h1>
-    <p>Partner logistico ufficiale per Los Santos e dintorni</p>
-</div>
+<section class="hero">
+    <h1>Logistica Avanzata</h1>
+    <p>Gestione efficiente per professionisti dell'Import-Export</p>
+</section>
 
 <div class="container">
     
-    <h2 id="listino"><i class="fas fa-list"></i> Stato Attività Partner</h2>
+    <h2><i class="fas fa-store"></i> Attività</h2>
     <div class="grid">
         <div class="card coming-soon">
-            <span class="badge">COMING SOON</span>
+            <span class="badge">SOON</span>
             <h3>The Shooting Range 🔫</h3>
-            <p>Forniture balistiche e addestramento tattico.</p>
+            <p>Forniture tattiche e armamento.</p>
         </div>
         <div class="card coming-soon">
-            <span class="badge">COMING SOON</span>
+            <span class="badge">SOON</span>
             <h3>The Old Roof</h3>
-            <p>Gestione stoccaggio e logistica sopraelevata.</p>
+            <p>Stoccaggio merci ad alta quota.</p>
         </div>
         <div class="card coming-soon">
-            <span class="badge">COMING SOON</span>
+            <span class="badge">SOON</span>
             <h3>Corner Shop</h3>
-            <p>Distribuzione capillare per vendita al dettaglio.</p>
+            <p>Distribuzione locale rapida.</p>
         </div>
     </div>
 
-    <h2 id="flotta" style="margin-top: 60px;"><i class="fas fa-truck-moving"></i> Flotta Aziendale</h2>
+    <h2><i class="fas fa-truck"></i> Flotta Aziendale</h2>
     <div class="grid">
-        <div class="card vehicle-card">
-            <i class="fas fa-shuttle-van"></i>
+        <div class="card">
             <h3>Speedo Custom</h3>
-            <p>Ideale per consegne rapide e carichi leggeri nel traffico urbano.</p>
+            <p>Rapido e versatile.</p>
+            <span class="vehicle-tag">Categoria: Light Delivery</span>
         </div>
-        <div class="card vehicle-card">
-            <i class="fas fa-truck"></i>
+        <div class="card">
             <h3>Mule Custom</h3>
-            <p>Il perfetto equilibrio tra capacità di carico e manovrabilità.</p>
+            <p>Capacità di carico media.</p>
+            <span class="vehicle-tag">Categoria: Industrial</span>
         </div>
-        <div class="card vehicle-card">
-            <i class="fas fa-truck-loading"></i>
+        <div class="card">
             <h3>Pounder Custom</h3>
-            <p>Il gigante della strada per trasporti industriali massivi.</p>
+            <p>Trasporto carichi pesanti.</p>
+            <span class="vehicle-tag">Categoria: Heavy Duty</span>
         </div>
     </div>
 
-    <h2 id="outfit" style="margin-top: 60px;"><i class="fas fa-user-tie"></i> Protocollo Outfit RP</h2>
-    <div class="outfit-grid">
+    <h2><i class="fas fa-tshirt"></i> Divise RP</h2>
+    <div class="grid">
         <div class="card">
-            <h3><i class="fas fa-road"></i> Outfit da Camionista</h3>
+            <h3><i class="fas fa-road"></i> Camionista</h3>
             <ul class="outfit-list">
-                <li><strong>Capo:</strong> Cappellino Trucker o Vintage</li>
-                <li><strong>Torso:</strong> Camicia a quadri o T-shirt con logo</li>
-                <li><strong>Giacca:</strong> Gilet imbottito o Alta Visibilità</li>
-                <li><strong>Gambe:</strong> Jeans scuri resistenti o Cargo</li>
-                <li><strong>Piedi:</strong> Stivali robusti (Marroni/Neri)</li>
-                <li><strong>Accessori:</strong> Orologio digitale e guanti da lavoro</li>
+                <li><i class="fas fa-check-circle"></i> Berretto Trucker (Blu/Nero)</li>
+                <li><i class="fas fa-check-circle"></i> Camicia a quadri</li>
+                <li><i class="fas fa-check-circle"></i> Jeans scuri</li>
+                <li><i class="fas fa-check-circle"></i> Stivali da lavoro</li>
             </ul>
         </div>
         <div class="card">
-            <h3><i class="fas fa-warehouse"></i> Outfit da Magazziniere</h3>
+            <h3><i class="fas fa-warehouse"></i> Magazziniere</h3>
             <ul class="outfit-list">
-                <li><strong>Capo:</strong> Berretto semplice o Bandana</li>
-                <li><strong>Torso:</strong> T-shirt semplice o Polo aziendale</li>
-                <li><strong>Giacca:</strong> Gilet riflettente (Giallo/Arancio)</li>
-                <li><strong>Gambe:</strong> Pantaloni Cargo con tasconi</li>
-                <li><strong>Piedi:</strong> Scarpe antinfortunistiche</li>
-                <li><strong>Accessori:</strong> Cintura porta attrezzi (opzionale)</li>
+                <li><i class="fas fa-check-circle"></i> Berretto o Bandana</li>
+                <li><i class="fas fa-check-circle"></i> T-shirt aziendale</li>
+                <li><i class="fas fa-check-circle"></i> Gilet riflettente</li>
+                <li><i class="fas fa-check-circle"></i> Pantaloni Cargo</li>
             </ul>
         </div>
     </div>
 
-    <h2 id="ordine" style="margin-top: 60px;"><i class="fas fa-paper-plane"></i> Portale Ordini Società</h2>
+    <h2><i class="fas fa-edit"></i> Modulo Ordini</h2>
     <div class="order-form">
-        <form id="webhookForm">
-            <div class="grid">
-                <div class="form-group">
-                    <label>Nome Società Richiedente</label>
-                    <input type="text" id="company" placeholder="Esempio: Police Dept / Hospital" required>
-                </div>
-                <div class="form-group">
-                    <label>Tipo di Veicolo Richiesto</label>
-                    <select id="vehicle">
-                        <option value="Speedo Custom">Speedo Custom</option>
-                        <option value="Mule Custom">Mule Custom</option>
-                        <option value="Pounder Custom">Pounder Custom</option>
-                    </select>
-                </div>
+        <form id="orderForm">
+            <div class="form-group">
+                <label>SOCIETÀ</label>
+                <input type="text" id="company" placeholder="Nome attività (es. Police)" required>
             </div>
             <div class="form-group">
-                <label>Dettagli Ordine (Materiali/Quantità)</label>
-                <textarea id="details" rows="5" placeholder="Elenca qui la merce richiesta..." required></textarea>
+                <label>VEICOLO RICHIESTO</label>
+                <select id="vehicle">
+                    <option>Speedo Custom</option>
+                    <option>Mule Custom</option>
+                    <option>Pounder Custom</option>
+                </select>
             </div>
-            <button type="submit">INVIA ORDINE AL SETTORE LOGISTICA</button>
+            <div class="form-group">
+                <label>DETTAGLI MERCE</label>
+                <textarea id="items" rows="4" placeholder="Cosa dobbiamo trasportare?"></textarea>
+            </div>
+            <button type="submit">INVIA RICHIESTA</button>
         </form>
     </div>
 
 </div>
 
+<footer>
+    &copy; 2026 Pacific Import - Design Efficiente & Ordinato
+</footer>
+
 <script>
-    document.getElementById('webhookForm').addEventListener('submit', function(e) {
+    document.getElementById('orderForm').addEventListener('submit', function(e) {
         e.preventDefault();
         
-        // Sostituisci questo URL con il tuo Webhook Discord
-        const WEBHOOK_URL = 'IL_TUO_WEBHOOK_URL_QUI';
+        const WEBHOOK_URL = 'INSERISCI_QUI_IL_TUO_WEBHOOK';
         
-        const company = document.getElementById('company').value;
-        const vehicle = document.getElementById('vehicle').value;
-        const details = document.getElementById('details').value;
-
-        const payload = {
+        const data = {
             embeds: [{
-                title: "📦 NUOVO ORDINE PACIFIC IMPORT",
-                color: 1714540, // Colore Navy Blue
+                title: "🚚 NUOVA RICHIESTA DI TRASPORTO",
+                color: 16753920, // Orange
                 fields: [
-                    { name: "Società", value: company, inline: true },
-                    { name: "Veicolo", value: vehicle, inline: true },
-                    { name: "Richiesta", value: details }
+                    { name: "Società", value: document.getElementById('company').value },
+                    { name: "Veicolo", value: document.getElementById('vehicle').value },
+                    { name: "Dettagli", value: document.getElementById('items').value }
                 ],
-                timestamp: new Date()
+                footer: { text: "Sistema Pacific Import Mobile" }
             }]
         };
 
         fetch(WEBHOOK_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
+            body: JSON.stringify(data)
         }).then(() => {
-            alert('Ordine inviato con successo!');
-            document.getElementById('webhookForm').reset();
-        }).catch(err => {
-            alert('Errore nell\'invio. Controlla il Webhook.');
-            console.error(err);
-        });
+            alert('Ordine inviato! La logistica ti contatterà a breve.');
+            document.getElementById('orderForm').reset();
+        }).catch(() => alert('Errore nell\'invio. Verificare connessione.'));
     });
 </script>
 
