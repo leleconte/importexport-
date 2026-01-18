@@ -1,277 +1,301 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pacific Import | Mobile Optimized</title>
+    <title>Pacific Import | Official Portal</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
             --primary: #1a2a6c;
             --secondary: #b21f1f;
             --accent: #fdbb2d;
-            --bg: #f8f9fa;
-            --text: #2d3436;
+            --dark: #2d3436;
+            --light: #f4f7f6;
+            --white: #ffffff;
         }
 
-        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        * { box-sizing: border-box; }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
-            background-color: var(--bg);
-            color: var(--text);
-            line-height: 1.5;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
         }
 
-        /* Header Responsivo */
+        /* Header */
         header {
             background: var(--primary);
-            color: white;
-            padding: 15px;
-            text-align: center;
+            color: var(--white);
+            padding: 1.2rem 5%;
+            display: flex;
+            flex-direction: column; /* Default mobile */
+            align-items: center;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .logo { font-size: 1.2rem; font-weight: 800; letter-spacing: 1px; }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(26, 42, 108, 0.9), rgba(26, 42, 108, 0.7)), url('https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=800&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-        }
-
-        .container { padding: 20px; max-width: 1200px; margin: auto; }
-
-        h2 { 
-            font-size: 1.4rem; 
-            border-left: 4px solid var(--secondary); 
-            padding-left: 10px; 
-            margin: 30px 0 20px;
-            text-transform: uppercase;
-        }
-
-        /* Grid adattive: 1 colonna su mobile, 3 su desktop */
-        .grid { 
-            display: grid; 
-            grid-template-columns: 1fr; 
-            gap: 15px; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
 
         @media (min-width: 768px) {
-            .grid { grid-template-columns: repeat(3, 1fr); }
-            .outfit-grid { grid-template-columns: 1fr 1fr; }
+            header { flex-direction: row; justify-content: space-between; }
+        }
+
+        .logo { font-size: 1.4rem; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(rgba(26, 42, 108, 0.85), rgba(26, 42, 108, 0.85)), url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 35vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 { margin: 0; font-size: 1.8rem; }
+
+        /* Container */
+        .container { width: 95%; max-width: 1200px; margin: 30px auto; }
+
+        h2 { 
+            color: var(--primary); 
+            border-bottom: 2px solid var(--primary); 
+            padding-bottom: 10px;
+            margin-top: 50px;
+            font-size: 1.5rem;
+        }
+
+        /* Grid System */
+        .grid { 
+            display: grid; 
+            grid-template-columns: 1fr; /* 1 colonna su mobile */
+            gap: 20px; 
+            margin-top: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .grid { grid-template-columns: repeat(3, 1fr); } /* 3 colonne su desktop */
+            .grid-2 { grid-template-columns: 1fr 1fr; }
         }
 
         .card {
-            background: white;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-            border: 1px solid #eee;
+            background: var(--white);
+            padding: 25px;
+            border-radius: 4px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--primary);
+            transition: 0.3s;
         }
 
         /* Coming Soon */
-        .coming-soon { background: #f1f1f1; border-style: dashed; }
+        .coming-soon { opacity: 0.7; background: #eaedef; border-top-color: #636e72; }
         .badge {
-            background: #888;
+            background: var(--secondary);
             color: white;
+            padding: 3px 10px;
+            border-radius: 3px;
             font-size: 0.7rem;
-            padding: 2px 8px;
-            border-radius: 4px;
+            font-weight: bold;
             float: right;
         }
 
-        /* Veicoli */
-        .vehicle-tag {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            margin-top: 10px;
+        /* Vehicles */
+        .vehicle-card { text-align: center; }
+        .vehicle-card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 15px; display: block; }
+
+        /* Outfits */
+        .outfit-list { list-style: none; padding: 0; }
+        .outfit-list li { margin-bottom: 10px; padding-left: 25px; position: relative; font-size: 0.95rem; }
+        .outfit-list li::before { 
+            content: '\f0d1'; font-family: 'Font Awesome 5 Free'; font-weight: 900; 
+            position: absolute; left: 0; color: var(--secondary); 
         }
 
-        /* Outfit List */
-        .outfit-list { list-style: none; padding: 0; font-size: 0.95rem; }
-        .outfit-list li { margin-bottom: 10px; padding-left: 30px; position: relative; }
-        .outfit-list li i { position: absolute; left: 0; color: var(--primary); top: 3px; }
-
-        /* Form per Mobile */
-        .order-form {
-            background: white;
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        /* Form Ordini */
+        .order-section {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
 
         .form-group { margin-bottom: 20px; }
-        label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.9rem; }
+        label { display: block; margin-bottom: 8px; font-weight: bold; color: var(--primary); font-size: 0.9rem; }
         
         input, select, textarea {
             width: 100%;
-            padding: 14px;
-            border: 2px solid #edf2f7;
-            border-radius: 10px;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
             font-size: 1rem;
-            background: #fdfdfd;
+            font-family: inherit;
         }
-
-        input:focus { border-color: var(--primary); outline: none; }
 
         button {
             background: var(--primary);
             color: white;
-            padding: 18px;
+            padding: 15px;
             border: none;
-            border-radius: 10px;
-            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
             font-weight: bold;
             width: 100%;
-            cursor: pointer;
-            box-shadow: 0 4px 6px rgba(26, 42, 108, 0.2);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
         }
 
-        footer { text-align: center; padding: 40px; color: #888; font-size: 0.8rem; }
+        button:hover { background: #001a4d; }
+
+        footer { text-align: center; padding: 40px; color: #636e72; font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="logo"><i class="fas fa-box-open"></i> PACIFIC IMPORT</div>
+    <div class="logo"><i class="fas fa-globe-americas"></i> PACIFIC IMPORT</div>
 </header>
 
 <section class="hero">
-    <h1>Logistica Avanzata</h1>
-    <p>Gestione efficiente per professionisti dell'Import-Export</p>
+    <h1>DIVISIONE LOGISTICA</h1>
+    <p>Soluzioni di trasporto e stoccaggio per Los Santos</p>
 </section>
 
 <div class="container">
     
-    <h2><i class="fas fa-store"></i> Attività</h2>
+    <h2><i class="fas fa-briefcase"></i> LISTINO ATTIVITÀ</h2>
     <div class="grid">
         <div class="card coming-soon">
-            <span class="badge">SOON</span>
+            <span class="badge">COMING SOON</span>
             <h3>The Shooting Range 🔫</h3>
-            <p>Forniture tattiche e armamento.</p>
+            <p>Servizi di logistica per armamenti e munizioni.</p>
         </div>
         <div class="card coming-soon">
-            <span class="badge">SOON</span>
+            <span class="badge">COMING SOON</span>
             <h3>The Old Roof</h3>
-            <p>Stoccaggio merci ad alta quota.</p>
+            <p>Gestione magazzini e stoccaggio verticale.</p>
         </div>
         <div class="card coming-soon">
-            <span class="badge">SOON</span>
+            <span class="badge">COMING SOON</span>
             <h3>Corner Shop</h3>
-            <p>Distribuzione locale rapida.</p>
+            <p>Distribuzione capillare per piccoli punti vendita.</p>
         </div>
     </div>
 
-    <h2><i class="fas fa-truck"></i> Flotta Aziendale</h2>
+    <h2><i class="fas fa-truck-loading"></i> FLOTTA AZIENDALE</h2>
     <div class="grid">
-        <div class="card">
+        <div class="card vehicle-card">
+            <i class="fas fa-shuttle-van"></i>
             <h3>Speedo Custom</h3>
-            <p>Rapido e versatile.</p>
-            <span class="vehicle-tag">Categoria: Light Delivery</span>
+            <p>Unità di risposta rapida per consegne cittadine.</p>
         </div>
-        <div class="card">
+        <div class="card vehicle-card">
+            <i class="fas fa-truck"></i>
             <h3>Mule Custom</h3>
-            <p>Capacità di carico media.</p>
-            <span class="vehicle-tag">Categoria: Industrial</span>
+            <p>Il pilastro del trasporto commerciale medio.</p>
         </div>
-        <div class="card">
+        <div class="card vehicle-card">
+            <i class="fas fa-truck-moving"></i>
             <h3>Pounder Custom</h3>
-            <p>Trasporto carichi pesanti.</p>
-            <span class="vehicle-tag">Categoria: Heavy Duty</span>
+            <p>Capacità massima per carichi industriali pesanti.</p>
         </div>
     </div>
 
-    <h2><i class="fas fa-tshirt"></i> Divise RP</h2>
-    <div class="grid">
+    <h2><i class="fas fa-vest"></i> DIVISE COORDINATE</h2>
+    <div class="grid grid-2">
         <div class="card">
-            <h3><i class="fas fa-road"></i> Camionista</h3>
+            <h3><i class="fas fa-road"></i> Outfit da Camionista</h3>
             <ul class="outfit-list">
-                <li><i class="fas fa-check-circle"></i> Berretto Trucker (Blu/Nero)</li>
-                <li><i class="fas fa-check-circle"></i> Camicia a quadri</li>
-                <li><i class="fas fa-check-circle"></i> Jeans scuri</li>
-                <li><i class="fas fa-check-circle"></i> Stivali da lavoro</li>
+                <li><strong>Capo:</strong> Cappellino baseball o trucker (Neutro)</li>
+                <li><strong>Torso:</strong> Camicia a quadri o T-shirt aziendale</li>
+                <li><strong>Giacca:</strong> Gilet imbottito o riflettore RP</li>
+                <li><strong>Gambe:</strong> Jeans resistenti o Pantaloni Cargo</li>
+                <li><strong>Piedi:</strong> Stivali da lavoro robusti (Marroni/Neri)</li>
+                <li><strong>Extra:</strong> Orologio robusto e guanti da lavoro</li>
             </ul>
         </div>
         <div class="card">
-            <h3><i class="fas fa-warehouse"></i> Magazziniere</h3>
+            <h3><i class="fas fa-warehouse"></i> Outfit da Magazziniere</h3>
             <ul class="outfit-list">
-                <li><i class="fas fa-check-circle"></i> Berretto o Bandana</li>
-                <li><i class="fas fa-check-circle"></i> T-shirt aziendale</li>
-                <li><i class="fas fa-check-circle"></i> Gilet riflettente</li>
-                <li><i class="fas fa-check-circle"></i> Pantaloni Cargo</li>
+                <li><strong>Capo:</strong> Berretto semplice o Bandana</li>
+                <li><strong>Torso:</strong> T-shirt semplice o Polo di magazzino</li>
+                <li><strong>Giacca:</strong> Gilet riflettente (Giallo/Arancio)</li>
+                <li><strong>Gambe:</strong> Pantaloni cargo con tasconi</li>
+                <li><strong>Piedi:</strong> Scarpe da lavoro antinfortunistiche</li>
+                <li><strong>Extra:</strong> Cintura attrezzi stile RP</li>
             </ul>
         </div>
     </div>
 
-    <h2><i class="fas fa-edit"></i> Modulo Ordini</h2>
-    <div class="order-form">
-        <form id="orderForm">
+    <h2><i class="fas fa-file-invoice"></i> RICHIESTA DI TRASPORTO</h2>
+    <div class="order-section">
+        <form id="mainOrderForm">
             <div class="form-group">
-                <label>SOCIETÀ</label>
-                <input type="text" id="company" placeholder="Nome attività (es. Police)" required>
+                <label>SOCIETÀ RICHIEDENTE</label>
+                <input type="text" id="societa" placeholder="Es. Police, Mechanic, Hospital..." required>
             </div>
             <div class="form-group">
-                <label>VEICOLO RICHIESTO</label>
-                <select id="vehicle">
-                    <option>Speedo Custom</option>
-                    <option>Mule Custom</option>
-                    <option>Pounder Custom</option>
+                <label>VEICOLO ASSEGNATO</label>
+                <select id="mezzo">
+                    <option value="Speedo Custom">Speedo Custom</option>
+                    <option value="Mule Custom">Mule Custom</option>
+                    <option value="Pounder Custom">Pounder Custom</option>
                 </select>
             </div>
             <div class="form-group">
-                <label>DETTAGLI MERCE</label>
-                <textarea id="items" rows="4" placeholder="Cosa dobbiamo trasportare?"></textarea>
+                <label>MERCE E QUANTITÀ</label>
+                <textarea id="merce" rows="4" placeholder="Specificare i dettagli dell'ordine..." required></textarea>
             </div>
-            <button type="submit">INVIA RICHIESTA</button>
+            <button type="submit">INVIA ORDINE ALLA LOGISTICA</button>
         </form>
     </div>
 
 </div>
 
 <footer>
-    &copy; 2026 Pacific Import - Design Efficiente & Ordinato
+    &copy; 2026 PACIFIC IMPORT - Los Santos Division. Ordine, Efficienza, Rispetto.
 </footer>
 
 <script>
-    document.getElementById('orderForm').addEventListener('submit', function(e) {
+    document.getElementById('mainOrderForm').addEventListener('submit', function(e) {
         e.preventDefault();
         
-        const WEBHOOK_URL = 'INSERISCI_QUI_IL_TUO_WEBHOOK';
+        // Inserisci qui l'URL del tuo Webhook Discord
+        const HOOK = 'INSERISCI_IL_TUO_WEBHOOK_QUI';
         
-        const data = {
+        const payload = {
             embeds: [{
-                title: "🚚 NUOVA RICHIESTA DI TRASPORTO",
-                color: 16753920, // Orange
+                title: "📦 NUOVO ORDINE PACIFIC IMPORT",
+                color: 66977, // Navy Blue
                 fields: [
-                    { name: "Società", value: document.getElementById('company').value },
-                    { name: "Veicolo", value: document.getElementById('vehicle').value },
-                    { name: "Dettagli", value: document.getElementById('items').value }
+                    { name: "Società", value: document.getElementById('societa').value, inline: true },
+                    { name: "Veicolo", value: document.getElementById('mezzo').value, inline: true },
+                    { name: "Dettaglio", value: document.getElementById('merce').value }
                 ],
-                footer: { text: "Sistema Pacific Import Mobile" }
+                footer: { text: "Protocollo Logistico Pacific Import" },
+                timestamp: new Date()
             }]
         };
 
-        fetch(WEBHOOK_URL, {
+        fetch(HOOK, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
+            body: JSON.stringify(payload)
         }).then(() => {
-            alert('Ordine inviato! La logistica ti contatterà a breve.');
-            document.getElementById('orderForm').reset();
-        }).catch(() => alert('Errore nell\'invio. Verificare connessione.'));
+            alert('Ordine inviato correttamente alla centrale logistica.');
+            document.getElementById('mainOrderForm').reset();
+        }).catch(err => {
+            alert('Errore di comunicazione. Riprova.');
+        });
     });
 </script>
 
