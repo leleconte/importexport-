@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pacific Import | Logistica & Distribuzione</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a2a6c;
+            --secondary: #b21f1f;
+            --accent: #fdbb2d;
+            --dark: #2d3436;
+            --light: #f4f7f6;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            background-color: var(--light);
+            color: var(--dark);
+        }
+
+        /* Header & Navigation */
+        header {
+            background: var(--primary);
+            color: var(--white);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo { font-size: 1.5rem; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; }
+
+        nav a { color: white; text-decoration: none; margin-left: 20px; font-weight: 500; transition: 0.3s; }
+        nav a:hover { color: var(--accent); }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 42, 108, 0.8), rgba(26, 42, 108, 0.8)), url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            height: 40vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .container { width: 90%; max-width: 1200px; margin: 40px auto; }
+
+        /* Grid Layouts */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+
+        .card {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--primary);
+        }
+
+        /* Coming Soon Styling */
+        .coming-soon { opacity: 0.7; position: relative; overflow: hidden; }
+        .badge {
+            background: var(--secondary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            float: right;
+        }
+
+        /* Vehicles Section */
+        .vehicle-card { text-align: center; transition: transform 0.3s; }
+        .vehicle-card:hover { transform: translateY(-5px); }
+        .vehicle-card i { font-size: 3rem; color: var(--primary); margin-bottom: 15px; }
+
+        /* Outfit Section */
+        .outfit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .outfit-list { list-style: none; padding: 0; }
+        .outfit-list li { margin-bottom: 8px; padding-left: 25px; position: relative; }
+        .outfit-list li::before { content: '\f058'; font-family: 'Font Awesome 5 Free'; font-weight: 900; position: absolute; left: 0; color: var(--primary); }
+
+        /* Webhook Form */
+        .order-form {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background: var(--primary);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+            transition: background 0.3s;
+        }
+
+        button:hover { background: #0e173d; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo"><i class="fas fa-ship"></i> PACIFIC IMPORT</div>
+    <nav>
+        <a href="#listino">Listino</a>
+        <a href="#flotta">Flotta</a>
+        <a href="#outfit">Divise</a>
+        <a href="#ordine">Invia Ordine</a>
+    </nav>
+</header>
+
+<div class="hero">
+    <h1>Efficienza Globale, Consegna Locale</h1>
+    <p>Partner logistico ufficiale per Los Santos e dintorni</p>
+</div>
+
+<div class="container">
+    
+    <h2 id="listino"><i class="fas fa-list"></i> Stato Attività Partner</h2>
+    <div class="grid">
+        <div class="card coming-soon">
+            <span class="badge">COMING SOON</span>
+            <h3>The Shooting Range 🔫</h3>
+            <p>Forniture balistiche e addestramento tattico.</p>
+        </div>
+        <div class="card coming-soon">
+            <span class="badge">COMING SOON</span>
+            <h3>The Old Roof</h3>
+            <p>Gestione stoccaggio e logistica sopraelevata.</p>
+        </div>
+        <div class="card coming-soon">
+            <span class="badge">COMING SOON</span>
+            <h3>Corner Shop</h3>
+            <p>Distribuzione capillare per vendita al dettaglio.</p>
+        </div>
+    </div>
+
+    <h2 id="flotta" style="margin-top: 60px;"><i class="fas fa-truck-moving"></i> Flotta Aziendale</h2>
+    <div class="grid">
+        <div class="card vehicle-card">
+            <i class="fas fa-shuttle-van"></i>
+            <h3>Speedo Custom</h3>
+            <p>Ideale per consegne rapide e carichi leggeri nel traffico urbano.</p>
+        </div>
+        <div class="card vehicle-card">
+            <i class="fas fa-truck"></i>
+            <h3>Mule Custom</h3>
+            <p>Il perfetto equilibrio tra capacità di carico e manovrabilità.</p>
+        </div>
+        <div class="card vehicle-card">
+            <i class="fas fa-truck-loading"></i>
+            <h3>Pounder Custom</h3>
+            <p>Il gigante della strada per trasporti industriali massivi.</p>
+        </div>
+    </div>
+
+    <h2 id="outfit" style="margin-top: 60px;"><i class="fas fa-user-tie"></i> Protocollo Outfit RP</h2>
+    <div class="outfit-grid">
+        <div class="card">
+            <h3><i class="fas fa-road"></i> Outfit da Camionista</h3>
+            <ul class="outfit-list">
+                <li><strong>Capo:</strong> Cappellino Trucker o Vintage</li>
+                <li><strong>Torso:</strong> Camicia a quadri o T-shirt con logo</li>
+                <li><strong>Giacca:</strong> Gilet imbottito o Alta Visibilità</li>
+                <li><strong>Gambe:</strong> Jeans scuri resistenti o Cargo</li>
+                <li><strong>Piedi:</strong> Stivali robusti (Marroni/Neri)</li>
+                <li><strong>Accessori:</strong> Orologio digitale e guanti da lavoro</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3><i class="fas fa-warehouse"></i> Outfit da Magazziniere</h3>
+            <ul class="outfit-list">
+                <li><strong>Capo:</strong> Berretto semplice o Bandana</li>
+                <li><strong>Torso:</strong> T-shirt semplice o Polo aziendale</li>
+                <li><strong>Giacca:</strong> Gilet riflettente (Giallo/Arancio)</li>
+                <li><strong>Gambe:</strong> Pantaloni Cargo con tasconi</li>
+                <li><strong>Piedi:</strong> Scarpe antinfortunistiche</li>
+                <li><strong>Accessori:</strong> Cintura porta attrezzi (opzionale)</li>
+            </ul>
+        </div>
+    </div>
+
+    <h2 id="ordine" style="margin-top: 60px;"><i class="fas fa-paper-plane"></i> Portale Ordini Società</h2>
+    <div class="order-form">
+        <form id="webhookForm">
+            <div class="grid">
+                <div class="form-group">
+                    <label>Nome Società Richiedente</label>
+                    <input type="text" id="company" placeholder="Esempio: Police Dept / Hospital" required>
+                </div>
+                <div class="form-group">
+                    <label>Tipo di Veicolo Richiesto</label>
+                    <select id="vehicle">
+                        <option value="Speedo Custom">Speedo Custom</option>
+                        <option value="Mule Custom">Mule Custom</option>
+                        <option value="Pounder Custom">Pounder Custom</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Dettagli Ordine (Materiali/Quantità)</label>
+                <textarea id="details" rows="5" placeholder="Elenca qui la merce richiesta..." required></textarea>
+            </div>
+            <button type="submit">INVIA ORDINE AL SETTORE LOGISTICA</button>
+        </form>
+    </div>
+
+</div>
+
+<script>
+    document.getElementById('webhookForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Sostituisci questo URL con il tuo Webhook Discord
+        const WEBHOOK_URL = 'IL_TUO_WEBHOOK_URL_QUI';
+        
+        const company = document.getElementById('company').value;
+        const vehicle = document.getElementById('vehicle').value;
+        const details = document.getElementById('details').value;
+
+        const payload = {
+            embeds: [{
+                title: "📦 NUOVO ORDINE PACIFIC IMPORT",
+                color: 1714540, // Colore Navy Blue
+                fields: [
+                    { name: "Società", value: company, inline: true },
+                    { name: "Veicolo", value: vehicle, inline: true },
+                    { name: "Richiesta", value: details }
+                ],
+                timestamp: new Date()
+            }]
+        };
+
+        fetch(WEBHOOK_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        }).then(() => {
+            alert('Ordine inviato con successo!');
+            document.getElementById('webhookForm').reset();
+        }).catch(err => {
+            alert('Errore nell\'invio. Controlla il Webhook.');
+            console.error(err);
+        });
+    });
+</script>
+
+</body>
+</html>
