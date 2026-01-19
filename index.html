@@ -23,7 +23,6 @@
             color: var(--dark);
         }
 
-        /* Header & Navigation */
         header {
             background: var(--primary);
             color: var(--white);
@@ -38,24 +37,14 @@
         }
 
         .logo { font-size: 1.5rem; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; }
-
         nav a { color: white; text-decoration: none; margin-left: 20px; font-weight: 500; transition: 0.3s; }
         nav a:hover { color: var(--accent); }
 
-        /* Responsive Navigation per Mobile */
-        @media (max-width: 600px) {
-            header { flex-direction: column; padding: 1rem; }
-            nav { margin-top: 10px; }
-            nav a { margin: 0 10px; font-size: 0.9rem; }
-            .logo { font-size: 1.2rem; }
-        }
-
-        /* Hero Section */
         .hero {
             background: linear-gradient(rgba(26, 42, 108, 0.8), rgba(26, 42, 108, 0.8)), url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
-            height: 40vh;
+            height: 35vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -65,90 +54,41 @@
             padding: 0 15px;
         }
 
-        .hero h1 { font-size: 1.8rem; margin-bottom: 10px; }
+        .container { width: 95%; max-width: 1200px; margin: 40px auto; }
+        .section-title { border-bottom: 2px solid var(--primary); padding-bottom: 10px; margin: 40px 0 20px; display: flex; align-items: center; gap: 10px;}
 
-        .container { width: 90%; max-width: 1200px; margin: 40px auto; }
+        /* GRID */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
 
-        /* Grid Layouts - Ottimizzati per Mobile */
-        .grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 25px; 
-        }
-
-        .card {
+        /* LISTINO EXPANDABLE */
+        .card-listino {
             background: var(--white);
-            padding: 25px;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
             border-top: 4px solid var(--primary);
+            cursor: pointer;
+            margin-bottom: 10px;
+            overflow: hidden;
+            transition: 0.3s;
         }
+        .card-header-list { padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; background: var(--white); }
+        .card-header-list h3 { margin: 0; font-size: 1rem; color: var(--primary); text-transform: uppercase; }
+        .card-content-list { max-height: 0; overflow: hidden; transition: max-height 0.5s ease-in-out; background: #fafafa; }
+        .card-listino.active .card-content-list { max-height: 2000px; border-top: 1px solid #eee; }
+        .card-listino.active .fa-chevron-down { transform: rotate(180deg); }
 
-        /* Coming Soon Styling */
-        .coming-soon { opacity: 0.7; position: relative; overflow: hidden; }
-        .badge {
-            background: var(--secondary);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            float: right;
-        }
+        .price-item { display: flex; justify-content: space-between; padding: 10px 25px; border-bottom: 1px dashed #ddd; font-size: 0.9rem; }
+        .price-val { font-weight: bold; color: var(--secondary); }
 
-        /* Vehicles Section */
-        .vehicle-card { text-align: center; transition: transform 0.3s; }
-        .vehicle-card:hover { transform: translateY(-5px); }
-        .vehicle-card i { font-size: 3rem; color: var(--primary); margin-bottom: 15px; }
-
-        /* Outfit Section - Responsive */
-        .outfit-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 20px; 
-        }
-        
-        .outfit-list { list-style: none; padding: 0; }
-        .outfit-list li { margin-bottom: 8px; padding-left: 25px; position: relative; }
-        .outfit-list li::before { content: '\f058'; font-family: 'Font Awesome 5 Free'; font-weight: 900; position: absolute; left: 0; color: var(--primary); }
-
-        /* Webhook Form */
-        .order-form {
-            background: var(--white);
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        @media (max-width: 600px) {
-            .order-form { padding: 20px; }
-            h2 { font-size: 1.3rem; }
-        }
-
+        /* FORM */
+        .order-form { background: var(--white); padding: 30px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); margin-top: 20px; }
         .form-group { margin-bottom: 15px; }
         label { display: block; margin-bottom: 5px; font-weight: bold; }
-        input, select, textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            box-sizing: border-box;
-            font-size: 16px; 
-        }
+        input, select, textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; font-size: 16px; }
+        button { background: var(--primary); color: white; padding: 15px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; width: 100%; transition: 0.3s; font-size: 1rem; }
 
-        button {
-            background: var(--primary);
-            color: white;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            width: 100%;
-            transition: background 0.3s;
-            font-size: 1rem;
-        }
-
-        button:hover { background: #0e173d; }
+        /* UTILITY */
+        .badge { background: var(--secondary); color: white; padding: 2px 8px; border-radius: 10px; font-size: 0.7rem; }
     </style>
 </head>
 <body>
@@ -156,98 +96,147 @@
 <header>
     <div class="logo"><i class="fas fa-ship"></i> PACIFIC IMPORT</div>
     <nav>
-        <a href="#listino">Listino</a>
-        <a href="#flotta">Flotta</a>
-        <a href="#outfit">Divise</a>
+        <a href="#listini">Listini</a>
         <a href="#ordine">Ordine</a>
     </nav>
 </header>
 
 <div class="hero">
-    <h1>Efficienza Globale, Consegna Locale</h1>
-    <p>Partner logistico ufficiale per Definitive</p>
+    <h1>Logistica & Distribuzione Globale</h1>
+    <p>Catalogo Completo 2026</p>
 </div>
 
 <div class="container">
+
+    <h2 id="listini" class="section-title"><i class="fas fa-clipboard-list"></i> Cataloghi Integrali (Clicca Categoria)</h2>
     
-    <h2 id="listino"><i class="fas fa-list"></i> Stato Attività Partner</h2>
     <div class="grid">
-        <div class="card coming-soon">
-            <span class="badge">COMING SOON</span>
-            <h3>The Shooting Range 🔫</h3>
-            <p>Forniture balistiche e addestramento tattico.</p>
+        
+        <div class="card-listino" onclick="this.classList.toggle('active')">
+            <div class="card-header-list"><h3>📱 Elettronica</h3><i class="fas fa-chevron-down"></i></div>
+            <div class="card-content-list">
+                <div class="price-item">Telefono <span class="price-val">600$</span></div>
+                <div class="price-item">Sim <span class="price-val">400$</span></div>
+                <div class="price-item">Dash Cam <span class="price-val">1.820$</span></div>
+                <div class="price-item">GoPro <span class="price-val">2.040$</span></div>
+                <div class="price-item">Radio <span class="price-val">500$</span></div>
+                <div class="price-item">Telecamera Fissa <span class="price-val">2.280$</span></div>
+                <div class="price-item">PC portatile <span class="price-val">720$</span></div>
+                <div class="price-item">AirPods <span class="price-val">720$</span></div>
+                <div class="price-item">iPhone <span class="price-val">800$</span></div>
+                <div class="price-item">Micro registratore <span class="price-val">48$</span></div>
+                <div class="price-item">Cassa Bluetooth <span class="price-val">1.200$</span></div>
+            </div>
         </div>
-        <div class="card coming-soon">
-            <span class="badge">COMING SOON</span>
-            <h3>The Old Roof</h3>
-            <p>Gestione stoccaggio e logistica sopraelevata.</p>
+
+        <div class="card-listino" onclick="this.classList.toggle('active')">
+            <div class="card-header-list"><h3>🎒 Accessori & Oggetti</h3><i class="fas fa-chevron-down"></i></div>
+            <div class="card-content-list">
+                <div class="price-item">Borsone <span class="price-val">600$</span></div>
+                <div class="price-item">Zaino <span class="price-val">400$</span></div>
+                <div class="price-item">Tanica di benzina <span class="price-val">22$</span></div>
+                <div class="price-item">Orsacchiotto <span class="price-val">68$</span></div>
+                <div class="price-item">Pipa <span class="price-val">38$</span></div>
+                <div class="price-item">Preservativo <span class="price-val">12$</span></div>
+                <div class="price-item">Accendino <span class="price-val">10$</span></div>
+                <div class="price-item">Fascette <span class="price-val">6$</span></div>
+                <div class="price-item">Anello di diamante <span class="price-val">2.000$</span></div>
+                <div class="price-item">Mazzo di fiori <span class="price-val">140$</span></div>
+            </div>
         </div>
-        <div class="card coming-soon">
-            <span class="badge">COMING SOON</span>
-            <h3>Corner Shop</h3>
-            <p>Distribuzione capillare per vendita al dettaglio.</p>
+
+        <div class="card-listino" onclick="this.classList.toggle('active')">
+            <div class="card-header-list"><h3>🥤 Cibo & Snack</h3><i class="fas fa-chevron-down"></i></div>
+            <div class="card-content-list">
+                <div class="price-item">Thè (Pesca/Limone) <span class="price-val">300/312$</span></div>
+                <div class="price-item">Patatine <span class="price-val">200$</span></div>
+                <div class="price-item">Ciambella <span class="price-val">180$</span></div>
+                <div class="price-item">Acqua (Nat/Friz) <span class="price-val">100$</span></div>
+                <div class="price-item">Coca-Cola / Sprunk <span class="price-val">120$</span></div>
+                <div class="price-item">Pretzel <span class="price-val">48$</span></div>
+                <div class="price-item">Biscotto <span class="price-val">62$</span></div>
+                <div class="price-item">Lecca lecca <span class="price-val">32$</span></div>
+                <div class="price-item">Caramella <span class="price-val">20$</span></div>
+                <div class="price-item">Meteorite <span class="price-val">2$</span></div>
+                <div class="price-item">Ecola <span class="price-val">1$</span></div>
+                <div class="price-item">Junk Energy <span class="price-val">0.35$</span></div>
+            </div>
         </div>
-        <div class="card coming-soon">
-            <span class="badge">COMING SOON</span>
-            <h3>City Garage 🏎️</h3>
-            <p>Logistica e ricambi per il settore automotive.</p>
+
+        <div class="card-listino" onclick="this.classList.toggle('active')">
+            <div class="card-header-list"><h3>🚬 Fumo & Svapo</h3><i class="fas fa-chevron-down"></i></div>
+            <div class="card-content-list">
+                <div class="price-item">Svapo <span class="price-val">46$</span></div>
+                <div class="price-item">Terea <span class="price-val">34$</span></div>
+                <div class="price-item">Sigaretta Elettronica <span class="price-val">50$</span></div>
+                <div class="price-item">Sigaretta Singola <span class="price-val">16$</span></div>
+                <div class="price-item">Pacchetto Sigarette <span class="price-val">20$</span></div>
+            </div>
+        </div>
+
+        <div class="card-listino" onclick="this.classList.toggle('active')">
+            <div class="card-header-list"><h3>🍸 Bar & Spirit</h3><i class="fas fa-chevron-down"></i></div>
+            <div class="card-content-list">
+                <div class="price-item">Whiskey Macbeth <span class="price-val">150$</span></div>
+                <div class="price-item">Richard’s Whisky <span class="price-val">96$</span></div>
+                <div class="price-item">Rum / Tequila <span class="price-val">85/47$</span></div>
+                <div class="price-item">Vodka / Whiskey <span class="price-val">18/33$</span></div>
+                <div class="price-item">Blêuter’d Diamond <span class="price-val">4.650$</span></div>
+                <div class="price-item">Blêuter’d Gold <span class="price-val">1.700$</span></div>
+                <div class="price-item">Piswasser / Legger <span class="price-val">42/38$</span></div>
+            </div>
+        </div>
+
+        <div class="card-listino" onclick="this.classList.toggle('active')">
+            <div class="card-header-list"><h3>⚙️ City Garage</h3><i class="fas fa-chevron-down"></i></div>
+            <div class="card-content-list">
+                <div class="price-item">V12 (Power 4) <span class="price-val">4.650$</span></div>
+                <div class="price-item">V10 (Power 3) <span class="price-val">3.200$</span></div>
+                <div class="price-item">V8 / V6 <span class="price-val">2.550/2.040$</span></div>
+                <div class="price-item">Kit Turbo <span class="price-val">1.750$</span></div>
+                <div class="price-item">Impianto GPL <span class="price-val">1.485$</span></div>
+                <div class="price-item">Vernice Metallizzata <span class="price-val">1.320$</span></div>
+                <div class="price-item">Vernice Opaca/Normale <span class="price-val">930/525$</span></div>
+                <div class="price-item">Cerchi <span class="price-val">1.530$</span></div>
+                <div class="price-item">Xeno / LED <span class="price-val">60 - 150$</span></div>
+                <div class="price-item">Paraurti Carbonio <span class="price-val">2.480$</span></div>
+            </div>
+        </div>
+
+        <div class="card-listino" onclick="this.classList.toggle('active')">
+            <div class="card-header-list"><h3>🔪 Armi Bianche</h3><i class="fas fa-chevron-down"></i></div>
+            <div class="card-content-list">
+                <div class="price-item">Tirapugni / Coltello <span class="price-val">1.190$</span></div>
+                <div class="price-item">Coltello serramanico <span class="price-val">1.100$</span></div>
+                <div class="price-item">Pugnale antico <span class="price-val">1.350$</span></div>
+                <div class="price-item">Machete <span class="price-val">1.005$</span></div>
+                <div class="price-item">Mazza Baseball/Golf <span class="price-val">884/832$</span></div>
+                <div class="price-item">Torcia / Martello <span class="price-val">744/525$</span></div>
+            </div>
+        </div>
+
+        <div class="card-listino" onclick="this.classList.toggle('active')">
+            <div class="card-header-list"><h3>🔫 Armi da Fuoco</h3><i class="fas fa-chevron-down"></i></div>
+            <div class="card-content-list">
+                <div class="price-item">Pistola Combattimento <span class="price-val">7.905$</span></div>
+                <div class="price-item">Pistola Calibro .50 <span class="price-val">13.200$</span></div>
+                <div class="price-item">AK-47 (Assalto) <span class="price-val">28.000$</span></div>
+                <div class="price-item">Fucile Cecchino <span class="price-val">57.750$</span></div>
+                <div class="price-item">Silenziatore <span class="price-val">1.550$</span></div>
+                <div class="price-item">Caricatore Esteso <span class="price-val">1.280$</span></div>
+            </div>
         </div>
     </div>
 
-    <h2 id="flotta" style="margin-top: 60px;"><i class="fas fa-truck-moving"></i> Flotta Aziendale</h2>
-    <div class="grid">
-        <div class="card vehicle-card">
-            <i class="fas fa-shuttle-van"></i>
-            <h3>Speedo Custom</h3>
-            <p>Ideale per consegne rapide e carichi leggeri.</p>
-        </div>
-        <div class="card vehicle-card">
-            <i class="fas fa-truck"></i>
-            <h3>Mule Custom</h3>
-            <p>Il perfetto equilibrio tra capacità e manovrabilità.</p>
-        </div>
-        <div class="card vehicle-card">
-            <i class="fas fa-truck-loading"></i>
-            <h3>Pounder Custom</h3>
-            <p>Il gigante della strada per trasporti massivi.</p>
-        </div>
-    </div>
-
-    <h2 id="outfit" style="margin-top: 60px;"><i class="fas fa-user-tie"></i> Protocollo Outfit</h2>
-    <div class="outfit-grid">
-        <div class="card">
-            <h3><i class="fas fa-road"></i> Outfit da Camionista</h3>
-            <ul class="outfit-list">
-                <li><strong>Capo:</strong> Cappellino Trucker o Vintage</li>
-                <li><strong>Torso:</strong> Camicia a quadri o T-shirt con logo</li>
-                <li><strong>Giacca:</strong> Gilet imbottito o Alta Visibilità</li>
-                <li><strong>Gambe:</strong> Jeans scuri o Cargo</li>
-                <li><strong>Piedi:</strong> Stivali robusti (Marroni/Neri)</li>
-                <li><strong>Accessori:</strong> Orologio digitale e guanti</li>
-            </ul>
-        </div>
-        <div class="card">
-            <h3><i class="fas fa-warehouse"></i> Outfit da Magazziniere</h3>
-            <ul class="outfit-list">
-                <li><strong>Capo:</strong> Berretto semplice o Bandana</li>
-                <li><strong>Torso:</strong> T-shirt o Polo aziendale</li>
-                <li><strong>Giacca:</strong> Gilet riflettente (Giallo/Arancio)</li>
-                <li><strong>Gambe:</strong> Pantaloni Cargo con tasconi</li>
-                <li><strong>Piedi:</strong> Scarpe antinfortunistiche</li>
-                <li><strong>Accessori:</strong> Cintura porta attrezzi</li>
-            </ul>
-        </div>
-    </div>
-
-    <h2 id="ordine" style="margin-top: 60px;"><i class="fas fa-paper-plane"></i> Portale Ordini Società</h2>
+    <h2 id="ordine" class="section-title"><i class="fas fa-paper-plane"></i> Portale Ordini</h2>
     <div class="order-form">
         <form id="webhookForm">
             <div class="form-group">
-                <label>Nome Società Richiedente</label>
-                <input type="text" id="company" placeholder="Esempio: Police Dept / Hospital" required>
+                <label>Società Richiedente</label>
+                <input type="text" id="company" placeholder="Es: Police / Hospital / Meccanici" required>
             </div>
             <div class="form-group">
-                <label>Tipo di Veicolo Richiesto</label>
+                <label>Mezzo Richiesto</label>
                 <select id="vehicle">
                     <option value="Speedo Custom">Speedo Custom</option>
                     <option value="Mule Custom">Mule Custom</option>
@@ -255,10 +244,10 @@
                 </select>
             </div>
             <div class="form-group">
-                <label>Dettagli Ordine (Materiali/Quantità)</label>
-                <textarea id="details" rows="5" placeholder="Elenca qui la merce richiesta..." required></textarea>
+                <label>Richiesta Dettagliata</label>
+                <textarea id="details" rows="5" placeholder="Incolla qui gli oggetti dal listino..." required></textarea>
             </div>
-            <button type="submit">INVIA ORDINE AL SETTORE LOGISTICA</button>
+            <button type="submit">INVIA ORDINE LOGISTICA</button>
         </form>
     </div>
 
@@ -269,18 +258,23 @@
         e.preventDefault();
         const WEBHOOK_URL = 'https://discord.com/api/webhooks/1462579378151231694/Lnk1G_22uN4L9nUXo7oiQWKt3J9ZqNkxK9l3hFIIQmYlXUxznNfKfa1ik3kZ4aFT3F0r';
         
-        const company = document.getElementById('company').value;
-        const vehicle = document.getElementById('vehicle').value;
-        const details = document.getElementById('details').value;
+        const companyInput = document.getElementById('company').value.toLowerCase();
+        let mention = "";
+
+        // Tagging automatico basato sui tuoi ID memorizzati
+        if(companyInput.includes("police")) mention = "<@&1458608660728119387>";
+        if(companyInput.includes("hospital") || companyInput.includes("medico")) mention = "<@&1458608660728119394>";
+        if(companyInput.includes("mechanic") || companyInput.includes("meccanico")) mention = "<@&1458608661105606850>";
 
         const payload = {
+            content: mention + " 🔔 **NUOVO ORDINE PACIFIC IMPORT**",
             embeds: [{
-                title: "📦 NUOVO ORDINE PACIFIC IMPORT",
+                title: "DATI SPEDIZIONE",
                 color: 1714540,
                 fields: [
-                    { name: "Società", value: company, inline: true },
-                    { name: "Veicolo", value: vehicle, inline: true },
-                    { name: "Richiesta", value: details }
+                    { name: "Società", value: document.getElementById('company').value, inline: true },
+                    { name: "Veicolo", value: document.getElementById('vehicle').value, inline: true },
+                    { name: "Merce", value: document.getElementById('details').value }
                 ],
                 timestamp: new Date()
             }]
@@ -291,13 +285,12 @@
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload)
         }).then(() => {
-            alert('Ordine inviato con successo!');
+            alert('Ordine inviato! La logistica prenderà in carico la richiesta.');
             document.getElementById('webhookForm').reset();
-        }).catch(err => {
-            alert('Errore nell\'invio.');
         });
     });
 </script>
 
 </body>
 </html>
+
