@@ -54,6 +54,7 @@
         .price-card h4 { margin-top: 0; border-bottom: 2px solid #eee; padding-bottom: 10px; color: var(--primary); }
         .price-item { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px dashed #eee; font-size: 0.95rem; }
         .price-val { font-weight: bold; color: var(--secondary); }
+        .exclusive-badge { font-size: 0.7rem; background: var(--secondary); color: white; padding: 2px 6px; border-radius: 4px; margin-left: 5px; font-weight: bold; }
         .empty-list-msg { padding: 20px; text-align: center; color: #777; font-style: italic; background: #fff; border-radius: 10px; border: 1px dashed #ccc; }
 
         /* VEICOLI & OUTFIT */
@@ -77,6 +78,7 @@
 <header>
     <div class="logo">PACIFIC IMPORT</div>
     <nav>
+        <a href="#listino-generale">Import/Export</a>
         <a href="#partner">Partner</a>
         <a href="#flotta">Flotta</a>
         <a href="#completi">Completi</a>
@@ -90,6 +92,48 @@
 </section>
 
 <div class="container">
+
+    <h2 id="listino-generale"><i class="fas fa-file-invoice-dollar"></i> LISTINO PREZZI IMPORT EXPORT - VIKTORIAN STATE RP</h2>
+    <div class="price-grid" style="margin-top: 30px;">
+        <div class="price-card">
+            <h4><i class="fas fa-box"></i> Materiali & Cancelleria</h4>
+            <div class="price-item">Carta (Pedana 150 fogli A4) <span class="price-val">400$</span></div>
+            <div class="price-item">Plastica PVC (Pedana 150 fogli) <span class="price-val">750$</span></div>
+            <div class="price-item">Penne (Pedana 150 unità) <span class="price-val">300$</span></div>
+            <div class="price-item">Materiale edile (Pedana 20 pezzi) <span class="price-val">2200$</span></div>
+            <div class="price-item">Utensili da lavoro (Pedana 20 oggetti) <span class="price-val">890$</span></div>
+        </div>
+        <div class="price-card">
+            <h4><i class="fas fa-pills"></i> Salute & Sanificazione</h4>
+            <div class="price-item">Prodotti medici (Pedana 20 prodotti) <span class="price-val">1800$</span></div>
+            <div class="price-item">Detergenti & Igienizzanti (Pedana 20 pz) <span class="price-val">500$</span></div>
+            <div class="price-item">Guanti in lattice (Pedana 20 unità) <span class="price-val">450$</span></div>
+        </div>
+        <div class="price-card">
+            <h4><i class="fas fa-car-side"></i> Automotive & Tecnica</h4>
+            <div class="price-item">Trasporto Auto/Moto (Singolo) <span class="price-val">1400$</span></div>
+            <div class="price-item">Manutenzione Veicoli (Pedana 20 oggetti) <span class="price-val">1300$</span></div>
+            <div class="price-item">Prodotti elettronici (Pedana 20 oggetti) <span class="price-val">800$</span></div>
+        </div>
+        <div class="price-card">
+            <h4><i class="fas fa-utensils"></i> Food & Agricoltura</h4>
+            <div class="price-item">Alimenti (Pedana 20 pz) <span class="price-val">900$</span></div>
+            <div class="price-item">Prodotti agricoli (Pedana 50 oggetti) <span class="price-val">380$</span></div>
+            <div class="price-item">Tabacco/Sigarette (Pedana 20 pezzi) <span class="price-val">900$</span></div>
+            <div class="price-item">Prodotti da svapo (Pedana 20 pezzi) <span class="price-val">800$</span></div>
+        </div>
+        <div class="price-card">
+            <h4><i class="fas fa-gas-pump"></i> Cisterne (35.000 Litri)</h4>
+            <div class="price-item">Acqua <span class="price-val">4.550$</span></div>
+            <div class="price-item">Benzina <span class="price-val">5.500$</span></div>
+            <div class="price-item">Diesel <span class="price-val">5.000$</span></div>
+        </div>
+        <div class="price-card" style="border-top-color: var(--secondary);">
+            <h4><i class="fas fa-crosshairs"></i> Settore Difesa</h4>
+            <div class="price-item">Armi bianche (Pedana 20 oggetti) <span class="price-val">1600$<span class="exclusive-badge">AMMUNATION</span></span></div>
+            <div class="price-item">Armi da fuoco (Pedana 20 oggetti) <span class="price-val">2000$<span class="exclusive-badge">AMMUNATION</span></span></div>
+        </div>
+    </div>
     
     <h2 id="partner"><i class="fas fa-handshake"></i> Società Partner</h2>
     <div class="grid-societa">
@@ -269,7 +313,5 @@
         });
     });
 </script>
-</body>
-</html>
 </body>
 </html>
